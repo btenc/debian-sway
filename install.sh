@@ -58,7 +58,7 @@ fc-cache -vf
 # systemctl enable acpid
 
 # Display manager:
-apt install -y lightdm
+apt install -y lightdm light-locker
 systemctl enable lightdm
 systemctl set-default graphical.target
 
@@ -66,6 +66,5 @@ systemctl set-default graphical.target
 # apt install -y xfce4 xfce4-goodies
 
 # Openbox packages:
-apt install 
-apt install openbox obconf obmenu tint2 lxappearance 
-apt install dunst libnotify-bin 
+apt install openbox obconf obmenu tint2 
+apt install dunst libnotify-bin lxappearance 
