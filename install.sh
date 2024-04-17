@@ -66,5 +66,7 @@ systemctl set-default graphical.target
 # apt install -y xfce4 xfce4-goodies
 
 # Openbox packages:
-apt install openbox obconf obmenu tint2 
-apt install dunst libnotify-bin lxappearance 
+apt install -y openbox obconf obmenu tint2 
+apt install -y dunst libnotify-bin lxappearance 
+
+echo "You can now reboot."
