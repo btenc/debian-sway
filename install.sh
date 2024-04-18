@@ -69,4 +69,7 @@ systemctl set-default graphical.target
 apt install -y openbox obconf obmenu tint2 
 apt install -y dunst libnotify-bin lxappearance 
 
+mkdir -p ~/.config/openbox
+cp -a /etc/xdg/openbox/ ~/.config/
+
 echo "You can now reboot."
