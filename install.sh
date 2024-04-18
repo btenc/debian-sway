@@ -66,7 +66,7 @@ systemctl set-default graphical.target
 # apt install -y xfce4 xfce4-goodies
 
 # Openbox packages:
-apt install -y openbox obconf obmenu tint2 
+apt install -y openbox obconf tint2 
 apt install -y dunst libnotify-bin lxappearance 
 
 mkdir -p ~/.config/openbox
