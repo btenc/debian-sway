@@ -13,6 +13,25 @@ fi
 username=$(id -u -n 1000)
 builddir=$(pwd)
 
+cd $builddir
+mkdir -p /home/$username/.config
+mkdir -p /home/$username/Pictures
+mkdir -p /home/$username/Pictures/wallpapers
+mkdir -p /home/$username/Documents
+mkdir -p /home/$username/Videos
+mkdir -p /home/$username/Music
+mkdir -p /home/$username/appimages
+mkdir -p /home/$username/deb
+mkdir -p /home/$username/Downloads
+mkdir -p /home/$username/dev
+mkdir -p /home/$username/dev/repos
+mkdir -p /home/$username/dev/scripts
+mkdir -p /home/$username/Disks
+cp -R dotconfig/* /home/$username/.config/
+cp bg.jpg /home/$username/Pictures/wallpapers/
+mv user-dirs.dirs /home/$username/.config
+chown -R $username:$username /home/$username
+
 # Update packages list and update system:
 apt update
 apt upgrade -y
