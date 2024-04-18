@@ -26,7 +26,7 @@ mkdir -p /home/$username/Downloads
 mkdir -p /home/$username/dev
 mkdir -p /home/$username/dev/repos
 mkdir -p /home/$username/dev/scripts
-mkdir -p /home/$username/Disks
+mkdir -p /home/$username/disks
 cp -R dotconfig/* /home/$username/.config/
 cp -R deb/* /home/$username/deb/
 cp bg.jpg /home/$username/Pictures/wallpapers/
