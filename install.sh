@@ -2,7 +2,7 @@
 
 # Install packages after installing base Debian with no GUI
 
-# todo: icons, confs, wm, obsidian auto
+# todo: icons, confs, obsidian auto
 
 # Check if script is run as root:
 if [[ $EUID -ne 0 ]]; then
@@ -18,26 +18,26 @@ apt update
 apt upgrade -y
 
 # Xorg display server installation:
-apt install -y xserver-xorg x11-xserver-utils x11-utils xinit picom 
+apt install -y xserver-xorg x11-xserver-utils x11-utils xinit 
 
 # Essential packages:
-apt install -y build-essential unzip wget 
-apt install -y curl tree whois gpg apt-transport-https debian-archive-keyring udns-utils
-apt install -y menu lxpolkit dbus-x11 
+apt install -y build-essential eject zip unzip wget whois apt-transport-https dirmngr curl ssh traceroute iw acl ufw
+apt install -y tree gpg debian-archive-keyring udns-utils
+apt install -y lshw lxpolkit dbus-x11 
 
 # Audio:
 apt install -y pipewire wireplumber pavucontrol
 sudo -u $username systemctl --user enable wireplumber.service
 
 # Network: 
-apt install -y network-manager nm-tray
+apt install -y network-manager
 
 # Pref Apps:
-apt install -y vim neofetch figlet rofi feh
-apt install -y flameshot strawberry libreoffice thunderbird galculator imagemagick cpu-x 
+apt install -y vim ranger htop neofetch figlet parted gparted qalc 
+apt install -y vlc feh audacity gimp flameshot strawberry libreoffice thunderbird qalculate-gtk imagemagick
 
 # File manager:
-apt install -y thunar 
+apt install -y thunar thunar-archive-plugin thunar-gtkhash thunar-media-tags-plugin thunar-volman
 
 # Terminal emulator:
 apt install -y kitty
@@ -66,10 +66,9 @@ systemctl set-default graphical.target
 # apt install -y xfce4 xfce4-goodies
 
 # Openbox packages:
-apt install -y openbox obconf tint2 
-apt install -y dunst libnotify-bin lxappearance 
+apt install -y openbox obconf tint2 menu rofi picom dunst lxappearance 
 
-mkdir -p ~/.config/openbox
-cp -a /etc/xdg/openbox/ ~/.config/
+#mkdir -p ~/.config/openbox
+#cp -a /etc/xdg/openbox/ ~/.config/
 
 echo "You can now reboot."
