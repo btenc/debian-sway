@@ -2,7 +2,7 @@
 
 # Install packages after installing base Debian with no GUI
 
-# todo: icons, confs, obsidian auto
+# todo: icons, confs
 
 # Check if script is run as root:
 if [[ $EUID -ne 0 ]]; then
@@ -28,6 +28,7 @@ mkdir -p /home/$username/dev/repos
 mkdir -p /home/$username/dev/scripts
 mkdir -p /home/$username/Disks
 cp -R dotconfig/* /home/$username/.config/
+cp -R deb/* /home/$username/deb/
 cp bg.jpg /home/$username/Pictures/wallpapers/
 mv user-dirs.dirs /home/$username/.config
 chown -R $username:$username /home/$username
@@ -43,6 +44,7 @@ apt install -y xserver-xorg x11-xserver-utils x11-utils xinit
 apt install -y build-essential eject zip unzip wget whois apt-transport-https dirmngr curl ssh traceroute iw acl ufw
 apt install -y tree gpg debian-archive-keyring udns-utils
 apt install -y lshw lxpolkit dbus-x11 
+apt install -y xfce4-power-manager acpi 
 
 # Audio:
 apt install -y pipewire wireplumber pavucontrol
@@ -54,6 +56,7 @@ apt install -y network-manager
 # Pref Apps:
 apt install -y vim ranger htop neofetch figlet parted gparted qalc 
 apt install -y vlc feh audacity gimp flameshot strawberry libreoffice thunderbird qalculate-gtk imagemagick
+apt install -y /home/$username/deb/
 
 # File manager:
 apt install -y thunar thunar-archive-plugin thunar-gtkhash thunar-media-tags-plugin thunar-volman
@@ -73,7 +76,7 @@ apt install -y fonts-recommended fonts-font-awesome
 fc-cache -vf
 
 # Laptop essentials: 
-# apt install -y xbacklight acpi acpid xfce4-power-manager
+# apt install -y xbacklight acpid
 # systemctl enable acpid
 
 # Display manager:
