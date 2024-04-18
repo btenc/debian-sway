@@ -4,7 +4,7 @@
 
 # todo: icons, confs
 
-# Check if script is run as root:
+# Check if script is run as root: (Credit: Chris Titus)
 if [[ $EUID -ne 0 ]]; then
   echo "You must be a root user to run this script, please run sudo ./install.sh" 2>&1
   exit 1
@@ -90,7 +90,5 @@ systemctl set-default graphical.target
 # Openbox packages:
 apt install -y openbox obconf tint2 menu rofi picom dunst lxappearance 
 
-#mkdir -p ~/.config/openbox
-#cp -a /etc/xdg/openbox/ ~/.config/
-
+echo ""
 echo "You can now reboot."
