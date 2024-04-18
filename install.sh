@@ -41,10 +41,10 @@ apt upgrade -y
 apt install -y xserver-xorg x11-xserver-utils x11-utils xinit 
 
 # Essential packages:
-apt install -y build-essential eject zip unzip wget whois apt-transport-https dirmngr curl ssh traceroute iw acl ufw
+apt install -y build-essential eject zip unzip wget whois apt-transport-https dirmngr curl ssh traceroute iw acl ufw acpi
 apt install -y tree gpg debian-archive-keyring udns-utils
 apt install -y lshw lxpolkit dbus-x11 
-apt install -y xfce4-power-manager acpi 
+apt install -y xfce4-power-manager arandr
 
 # Audio:
 apt install -y pipewire wireplumber pavucontrol
@@ -54,7 +54,7 @@ sudo -u $username systemctl --user enable wireplumber.service
 apt install -y network-manager
 
 # Pref Apps:
-apt install -y vim ranger htop neofetch figlet parted gparted qalc 
+apt install -y vim zoxide ranger htop neofetch figlet parted gparted qalc 
 apt install -y vlc feh audacity gimp flameshot strawberry libreoffice thunderbird qalculate-gtk imagemagick
 apt install -y /home/$username/deb/
 
