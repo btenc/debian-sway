@@ -3,4 +3,9 @@
 # Place your variants in /etc/icewm or in $HOME/.icewm since
 # modifications to this file will be overwritten when you reinstall icewm.
 #
-includeprog icewm-menu-fdo --sep-before --no-sep-others
+
+prog "Terminal" "" kitty
+prog "Files" "" ranger
+prog "Internet" "" firefox-esr
+separator
+menuprog "Programs" icewm-menu-fdo --sep-before --no-sep-others

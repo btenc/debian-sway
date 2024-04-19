@@ -877,7 +877,7 @@ DesktopBackgroundScaled=0 # 0 / 1
 DesktopBackgroundColor=""
 
 # Desktop wallpaper image
-DesktopBackgroundImage="~/wp.png"
+DesktopBackgroundImage="~/Pictures/wallpapers/bg.jpg"
 
 # Support semi-transparent applications like gnome-terminal
 SupportSemitransparency=1 # 0 / 1
