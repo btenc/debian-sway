@@ -87,7 +87,7 @@ systemctl enable lightdm || echo "Failed to enable display manager"
 systemctl set-default graphical.target || echo "Failed to set default graphical target"
 
 echo "Installing window management tools..."
-apt install -y openbox obconf tint2 menu rofi picom dunst lxappearance &>> "${user_home}/apt-log.txt"
+apt install -y icewm rofi picom &>> "${user_home}/apt-log.txt"
 
 echo "Installing local .deb packages..."
 deb_dir="$user_home/deb"
