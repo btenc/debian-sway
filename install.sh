@@ -19,7 +19,7 @@ user_home="/home/$username"
 echo "apt-log will be located at /home/$username"
 
 # Home directories to be created
-directories=(.config Pictures/wallpapers Documents Videos Music appimages deb Downloads dev/repos dev/scripts dev/vm disks)
+directories=(.config Pictures/wallpapers Documents Videos Music appimages deb Downloads dev/repos dev/scripts disks)
 
 echo "Creating directories for user $username..."
 for dir in "${directories[@]}"; do
@@ -88,7 +88,7 @@ echo "Installing window management tools..."
 apt install -y openbox obconf tint2 menu rofi picom dunst lxappearance &>> "${user_home}/apt-log.txt"
 
 echo "Enabling wireplumber service..."
-sudo -u $username systemctl --user enable wireplumber.service || echo "Failed to enable wireplumber service for $username"
+systemctl --user enable wireplumber.service || echo "Failed to enable wireplumber service for $username"
 
 echo "Installing local .deb packages..."
 deb_dir="$user_home/deb"
