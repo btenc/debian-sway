@@ -57,7 +57,9 @@ echo "Installing audio management packages..."
 apt install -y pipewire wireplumber pavucontrol &>> "${user_home}/apt-log.txt"
 
 echo "Installing preferred applications..."
+echo "CLI functions..."
 apt install -y vim zoxide ranger htop neofetch figlet qalc &>> "${user_home}/apt-log.txt"
+echo "GUI applications..."
 apt install -y vlc feh audacity gparted gimp flameshot strawberry libreoffice thunderbird qalculate-gtk imagemagick &>> "${user_home}/apt-log.txt"
 
 echo "Installing file manager and related plugins..."
