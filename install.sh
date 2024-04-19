@@ -89,9 +89,6 @@ systemctl set-default graphical.target || echo "Failed to set default graphical 
 echo "Installing window management tools..."
 apt install -y openbox obconf tint2 menu rofi picom dunst lxappearance &>> "${user_home}/apt-log.txt"
 
-echo "Enabling wireplumber service..."
-sudo -u $username XDG_RUNTIME_DIR=/run/user/$(id -u $username) systemctl --user enable wireplumber.service || echo "Failed to enable wireplumber service for $username"
-
 echo "Installing local .deb packages..."
 deb_dir="$user_home/deb"
 if compgen -G "${deb_dir}/*.deb" > /dev/null; then
@@ -99,6 +96,9 @@ if compgen -G "${deb_dir}/*.deb" > /dev/null; then
 else
   echo "No .deb files found in $deb_dir to install."
 fi
+
+echo "Enabling wireplumber service..."
+sudo -u $username XDG_RUNTIME_DIR=/run/user/$(id -u $username) systemctl --user enable wireplumber.service || echo "Failed to enable wireplumber service for $username"
 
 apt autopurge &>> "${user_home}/apt-log.txt"
 
