@@ -1,4 +1,11 @@
-#-------------------------------------------------------------------
-# icewm theme file
-#-------------------------------------------------------------------
-Theme="axios/default.theme"
+Theme="darkice/default.theme"
+#Theme="default/default.theme"
+#Theme="darkice/default.theme"
+#Theme="darkice/default.theme"
+#Theme="darkice/default.theme"
+#Theme="darkice/default.theme"
+#Theme="darkice/default.theme"
+#Theme="darkice/default.theme"
+#Theme="darkice/default.theme"
+#Theme="darkice/default.theme"
+#Theme="darkice/default.theme"

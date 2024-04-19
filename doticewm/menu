@@ -1,20 +1,6 @@
-#------------------------------------------------------------------------
-# icewm menu file
-# Settings menu options by Mizu.Taifux
-# 2023
-#------------------------------------------------------------------------
+# This is an example for icewm 2.3.0 menu definition file.
+# It will be installed as /usr/share/icewm/menu.
+# Place your variants in /etc/icewm or in $HOME/.icewm since
+# modifications to this file will be overwritten when you reinstall icewm.
 #
-# Usage for new options
-#
-# prog "Program Name" path/imagefile.png programname
-#
-# Separator menu options
-#
-# separator
-#
-#------------------------------------------------------------------------
-prog "Terminal" "" urxvt
-prog "Navegador" "" firefox
-prog "Arquivos" "" pcmanfm
-separator
-menuprog "Programas" folder icewm-menu-fdo
+includeprog icewm-menu-fdo --sep-before --no-sep-others
