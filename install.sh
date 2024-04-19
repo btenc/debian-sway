@@ -57,9 +57,9 @@ echo "Installing audio management packages..."
 apt install -y pipewire wireplumber pavucontrol &>> "${user_home}/apt-log.txt"
 
 echo "Installing preferred applications..."
-echo "CLI functions..."
+echo "    CLI applications..."
 apt install -y vim zoxide ranger htop neofetch figlet qalc &>> "${user_home}/apt-log.txt"
-echo "GUI applications..."
+echo "    GUI applications..."
 apt install -y vlc feh audacity gparted gimp flameshot strawberry libreoffice thunderbird qalculate-gtk imagemagick &>> "${user_home}/apt-log.txt"
 
 echo "Installing file manager and related plugins..."
@@ -90,7 +90,7 @@ echo "Installing window management tools..."
 apt install -y openbox obconf tint2 menu rofi picom dunst lxappearance &>> "${user_home}/apt-log.txt"
 
 echo "Enabling wireplumber service..."
-systemctl --user enable wireplumber.service || echo "Failed to enable wireplumber service for $username"
+sudo -u $username XDG_RUNTIME_DIR=/run/user/$(id -u $username) systemctl --user enable wireplumber.service || echo "Failed to enable wireplumber service for $username"
 
 echo "Installing local .deb packages..."
 deb_dir="$user_home/deb"
