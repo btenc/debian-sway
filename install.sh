@@ -2,93 +2,105 @@
 
 # Install packages after installing base Debian with no GUI
 
-# todo: icons, confs
-
-# Check if script is run as root: (Credit: Chris Titus)
+# Ensure the script is run as root:
 if [[ $EUID -ne 0 ]]; then
-  echo "You must be a root user to run this script, please run sudo ./install.sh" 2>&1
+  echo "You must be a root user to run this script, please run 'sudo ./install.sh'"
+  exit 1
+fi
+
+# Verify user 1000 exists
+if ! id "1000" &>/dev/null; then
+  echo "User with ID 1000 does not exist, please create this user or modify the script for a different user ID."
   exit 1
 fi
 
 username=$(id -u -n 1000)
-builddir=$(pwd)
+user_home="/home/$username"
 
-cd $builddir
-mkdir -p /home/$username/.config
-mkdir -p /home/$username/Pictures
-mkdir -p /home/$username/Pictures/wallpapers
-mkdir -p /home/$username/Documents
-mkdir -p /home/$username/Videos
-mkdir -p /home/$username/Music
-mkdir -p /home/$username/appimages
-mkdir -p /home/$username/deb
-mkdir -p /home/$username/Downloads
-mkdir -p /home/$username/dev
-mkdir -p /home/$username/dev/repos
-mkdir -p /home/$username/dev/scripts
-mkdir -p /home/$username/disks
-cp -R dotconfig/* /home/$username/.config/
-cp -R deb/* /home/$username/deb/
-cp bg.jpg /home/$username/Pictures/wallpapers/
-mv user-dirs.dirs /home/$username/.config
-chown -R $username:$username /home/$username
+# Home directories to be created
+directories=(.config Pictures/wallpapers Documents Videos Music appimages deb Downloads dev/repos dev/scripts disks)
 
-# Update packages list and update system:
-apt update
-apt upgrade -y
+echo "Creating directories for user $username..."
+for dir in "${directories[@]}"; do
+  mkdir -p "$user_home/$dir" || { echo "Failed to create $dir"; exit 1; }
+done
 
-# Xorg display server installation:
-apt install -y xserver-xorg x11-xserver-utils x11-utils xinit 
+echo "Copying configuration and necessary files..."
+cp -R dotconfig/* "$user_home/.config/" || echo "Failed to copy configuration files to .config"
+cp -R deb/* "$user_home/deb/" || echo "Failed to copy .deb files"
 
-# Essential packages:
-apt install -y build-essential eject zip unzip wget whois apt-transport-https dirmngr curl ssh traceroute iw acl ufw acpi
-apt install -y tree gpg debian-archive-keyring udns-utils
-apt install -y lshw lxpolkit dbus-x11 
-apt install -y xfce4-power-manager arandr
+# Check if bg.jpg exists before copying
+if [ -f "bg.jpg" ]; then
+    cp bg.jpg "$user_home/Pictures/wallpapers/" || echo "Failed to copy bg.jpg"
+else
+    echo "Warning: 'bg.jpg' not found, skipping..."
+fi
 
-# Audio:
+mv user-dirs.dirs "$user_home/.config" || echo "Failed to move user-dirs.dirs file"
+chown -R $username:$username "$user_home" || echo "Failed to change ownership to $username"
+
+# System update:
+echo "Updating system packages..."
+apt update && apt upgrade -y
+
+# Installation of various packages
+echo "Installing base system utilities..."
+apt install -y build-essential eject zip unzip parted wget whois lshw apt-transport-https dirmngr curl ssh traceroute iw acl ufw acpi tree gpg debian-archive-keyring udns-utils
+
+echo "Installing additional utilities..."
+apt install -y lxpolkit xfce4-power-manager arandr network-manager
+
+echo "Installing Xorg display server..."
+apt install -y xserver-xorg x11-xserver-utils x11-utils xinit dbus-x11
+
+echo "Installing audio management packages..."
 apt install -y pipewire wireplumber pavucontrol
-sudo -u $username systemctl --user enable wireplumber.service
+sudo -u $username systemctl --user enable wireplumber.service || echo "Failed to enable wireplumber service for $username"
 
-# Network: 
-apt install -y network-manager
+echo "Installing preferred applications..."
+apt install -y vim zoxide ranger htop neofetch figlet qalc 
+apt install -y vlc feh audacity gparted gimp flameshot strawberry libreoffice thunderbird qalculate-gtk imagemagick
 
-# Pref Apps:
-apt install -y vim zoxide ranger htop neofetch figlet parted gparted qalc 
-apt install -y vlc feh audacity gimp flameshot strawberry libreoffice thunderbird qalculate-gtk imagemagick
-apt install -y /home/$username/deb/
-
-# File manager:
+echo "Installing file manager and related plugins..."
 apt install -y thunar thunar-archive-plugin thunar-gtkhash thunar-media-tags-plugin thunar-volman
 
-# Terminal emulator:
-apt install -y kitty
+echo "Installing terminal..."
+apt install -y kitty 
 
-# Browser:
+echo "Installing browser and PWA functionality..."
 apt install -y firefox-esr 
+if curl -fsSL https://packagecloud.io/filips/FirefoxPWA/gpgkey | gpg --dearmor | sudo tee /usr/share/keyrings/firefoxpwa-keyring.gpg > /dev/null; then
+  echo "deb [signed-by=/usr/share/keyrings/firefoxpwa-keyring.gpg] https://packagecloud.io/filips/FirefoxPWA/any any main" | sudo tee /etc/apt/sources.list.d/firefoxpwa.list > /dev/null
+  apt update && apt install -y firefoxpwa || { echo "Firefox PWA installation failed.";}
+else
+  echo "Failed to download or process the GPG key for Firefox PWA."
+fi
 
-curl -fsSL https://packagecloud.io/filips/FirefoxPWA/gpgkey | gpg --dearmor | sudo tee /usr/share/keyrings/firefoxpwa-keyring.gpg > /dev/null
-echo "deb [signed-by=/usr/share/keyrings/firefoxpwa-keyring.gpg] https://packagecloud.io/filips/FirefoxPWA/any any main" | sudo tee /etc/apt/sources.list.d/firefoxpwa.list > /dev/null
-apt install -y firefoxpwa
-
-# Fonts:
+echo "Installing fonts..."
 apt install -y fonts-recommended fonts-font-awesome
 fc-cache -vf
 
-# Laptop essentials: 
-# apt install -y xbacklight acpid
-# systemctl enable acpid
-
-# Display manager:
+echo "Setting up display manager..."
 apt install -y lightdm light-locker
 systemctl enable lightdm
 systemctl set-default graphical.target
 
-# XFCE4 Minimal:
-# apt install -y xfce4 xfce4-goodies
-
-# Openbox packages:
+echo "Installing window management tools..."
 apt install -y openbox obconf tint2 menu rofi picom dunst lxappearance 
 
-echo ""
-echo "You can now reboot."
+echo "Installing local .deb packages..."
+deb_dir="$user_home/deb"
+if compgen -G "${deb_dir}/*.deb" > /dev/null; then
+  apt install -y "$deb_dir"/*.deb
+else
+  echo "No .deb files found in $deb_dir to install."
+fi
+
+# Laptop essentials: 
+# echo "Installing window management tools..."
+# apt install -y xbacklight acpid
+# systemctl enable acpid
+
+apt autopurge
+
+echo "Setup complete. You can now reboot."
