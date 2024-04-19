@@ -1,0 +1,111 @@
+ThemeName="Gruvbox Dark-Soft"
+ThemeDescription="Minimalistic, flat theme inspired by Oomox Gruvbox Dark-Soft theme"
+ThemeAuthor="missTell | name@domain.com"
+License="GPL"
+Look=flat
+
+TitleBarHeight=27
+TitleBarCentered=1
+TitleBarJustify=54
+RolloverButtonsSupported=1
+ShowMenuButtonIcon=0		# Show application icon on menuButton
+
+TitleButtonsRight="xmi"
+TitleButtonsSupported="xmis"
+Titlebar height = TitleBarHeight in *.theme
+
+BorderSizeX=1
+BorderSizeY=1
+DlgBorderSizeX=1
+DlgBorderSizeY=1
+
+MenuIconSize=24		        # Menu
+SmallIconSize=24	        # Taskbar & Titlebar. Taskbar height = height of linux.xpm. Titlebar height = TitleBarHeight in *.theme
+LargeIconSize=32	        # Quickswitch window
+HugeIconSize=48		        # ?  Cannot identify what it applies to
+
+Gradients="menusel.xpm taskbarbg.xpm taskbuttonactive.xpm taskbuttonminimized.xpm"
+
+ColorNormalBorder="#83a598"
+ColorActiveBorder="#83a598"
+#ColorNormalBorder="#3c3b37"
+#ColorActiveBorder="#3c3b37"
+
+ColorNormalTitleBar="#bdae93"
+ColorNormalTitleBarText="#9a8e77"
+ColorActiveTitleBar="#bdae93"
+ColorActiveTitleBarText="#3c3836"
+
+ColorNormalMenu="#fdf6e3"
+#ColorActiveMenuItem="#83a598"
+ColorNormalMenuItemText="#3c3836"
+ColorActiveMenuItemText="#fbf1c7"
+ColorDisabledMenuItemText="#9a8e77"
+
+ColorMoveSizeStatus="#3c3836"
+ColorMoveSizeStatusText="#fbf1c7"
+
+PagerShowBorders=0
+ColorDefaultTaskBar="#bdae93"
+ColorNormalTaskBarApp="#bdae93"
+ColorNormalTaskBarAppText="#3c3836"
+ColorActiveTaskBarApp="black"
+ColorActiveTaskBarAppText="#3c3836"
+ColorMinimizedTaskBarApp="#bdae93"
+ColorMinimizedTaskBarAppText="#9a8e77"
+
+ColorActiveWorkspaceButton="#bdae93"
+ColorActiveWorkspaceButtonText="#fbf1c7"
+
+ColorNormalButton="#bdae93"
+ColorNormalButtonText="#3c3836"
+
+ColorListBox="#fbf1c7"
+ColorListBoxText="#3c3836"
+ColorListBoxSelection="#83a598"
+ColorListBoxSelectionText="#fbf1c7"
+
+ColorClock="#bdae93"
+ColorClockText="#3c3836"
+
+ColorToolTip="#3c3836"
+ColorToolTipText="#fbf1c7"
+
+ColorDialog="#fbf1c7"
+ColorLabel="#fbf1c7"
+ColorLabelText="#3c3836"
+###"#be3f3b"
+
+ColorQuickSwitch="#fbf1c7"
+ColorQuickSwitchText="#3c3836"
+ColorQuickSwitchActive="#665c54"
+ColorQuickSwitchSelectionText="#fbf1c7"
+
+ColorInput="#fbf1c7"
+ColorInputText="#3c3836"
+ColorInputSelection="#665c54"
+ColorInputSelectionText="#fbf1c7"
+
+# --------------------
+# Fonts
+# --------------------
+TitleFontNameXft="ubuntu:size=11,sans-serif:size=11"
+NormalTaskBarFontNameXft="ubuntu:size=11,Sans:size=11"
+ActiveTaskBarFontNameXft="ubuntu:size=11,Sans:size=11:bold"
+MenuFontNameXft = "ubuntu:size=11,Sans:size=11"
+StatusFontNameXft = "ubuntu:size=11,Sans:size=11"
+ListBoxFontNameXft = "ubuntu:size=11,Sans:size=11"
+QuickSwitchFontNameXft = "ubuntu:size=11,Sans:size=11"
+InputFontNameXft = "ubuntu:size=11,Sans:size=11"
+ToolTipFontNameXft = "ubuntu:size=11,Sans:size=11"
+ClockFontNameXft = "ubuntu:size=11,Sans:size=11"
+
+# --------------------
+# Desktop
+# --------------------
+DesktopBackgroundImage=""		# Prevent IceWM showing a background image
+DesktopBackgroundColor=""		# Prevent IceWM showing a background colour
+DesktopBackgroundCenter=1
+DesktopBackgroundScaled=1
+DesktopBackgroundColor="#83a598"
+DesktopBackgroundImage="default.png"

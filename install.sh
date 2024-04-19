@@ -19,7 +19,7 @@ user_home="/home/$username"
 echo "apt-log will be located at /home/$username"
 
 # Home directories to be created
-directories=(.config .icewm .icewm/themes Pictures/wallpapers Documents Videos Music appimages deb Downloads dev/repos dev/scripts disks)
+directories=(.config .icons .themes .icewm .icewm/themes Pictures/wallpapers Documents Videos Music appimages deb Downloads dev/repos dev/scripts disks)
 
 echo "Creating directories for user $username..."
 for dir in "${directories[@]}"; do
@@ -27,8 +27,10 @@ for dir in "${directories[@]}"; do
 done
 
 echo "Copying configuration and necessary files..."
-cp -R dotconfig/* "$user_home/.config/" || echo "Failed to copy configuration files to .config, skipping"
-cp -R doticewm/* "$user_home/.icewm/" || echo "Failed to copy configuration files to .icewm, skipping"
+cp -R dotconfig/* "$user_home/.config/" || echo "Failed to copy configuration files to .config, skipping..."
+cp -R doticewm/* "$user_home/.icewm/" || echo "Failed to copy configuration files to .icewm, skipping..."
+cp -R dotthemes/* "$user_home/.themes/" || echo "Failed to copy themes, skipping..."
+cp -R doticons/* "$user_home/.icons/" || echo "Failed to copy icons, skipping..."
 cp -R deb/* "$user_home/deb/" || echo "Failed to copy .deb files, skipping..."
 
 # Check if bg.jpg exists before copying
@@ -88,7 +90,7 @@ systemctl enable lightdm || echo "Failed to enable display manager"
 systemctl set-default graphical.target || echo "Failed to set default graphical target"
 
 echo "Installing window management tools..."
-apt install -y icewm rofi picom &>> "${user_home}/apt-log.txt"
+apt install -y icewm rofi picom lxappearance &>> "${user_home}/apt-log.txt"
 
 echo "Installing local .deb packages..."
 deb_dir="$user_home/deb"
