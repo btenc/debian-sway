@@ -19,7 +19,7 @@ user_home="/home/$username"
 echo "apt-log will be located at /home/$username"
 
 # Home directories to be created
-directories=(.config Pictures/wallpapers Documents Videos Music appimages deb Downloads dev/repos dev/scripts disks)
+directories=(.config .icewm .icewm/themes Pictures/wallpapers Documents Videos Music appimages deb Downloads dev/repos dev/scripts disks)
 
 echo "Creating directories for user $username..."
 for dir in "${directories[@]}"; do
@@ -28,6 +28,7 @@ done
 
 echo "Copying configuration and necessary files..."
 cp -R dotconfig/* "$user_home/.config/" || echo "Failed to copy configuration files to .config, skipping"
+cp -R doticewm/* "$user_home/.icewm/" || echo "Failed to copy configuration files to .icewm, skipping"
 cp -R deb/* "$user_home/deb/" || echo "Failed to copy .deb files, skipping..."
 
 # Check if bg.jpg exists before copying
