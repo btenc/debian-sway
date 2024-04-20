@@ -35,6 +35,7 @@ done
 cp -R dotthemes/* "$user_home/.themes/" || echo "Failed to copy themes, skipping..."
 cp -R doticons/* "$user_home/.icons/" || echo "Failed to copy icons, skipping..."
 cp -R deb/* "$user_home/deb/" || echo "Failed to copy .deb files, skipping..."
+cp dotbash_profile "$user_home/.bash_profile" || echo "Failed to copy bash profile, skipping..."
 
 # Check if bg.jpg exists before copying
 if [ -f "wallpaper.jpg" ]; then
@@ -84,10 +85,10 @@ echo "Installing fonts..."
 apt install -y fonts-recommended fonts-font-awesome &>> "${user_home}/apt-log.txt"
 fc-cache -vf &>> "${user_home}/apt-log.txt"
 
-#echo "Setting up display manager..."
-#apt install -y sddm &>> "${user_home}/apt-log.txt"
-#systemctl enable sddm || echo "Failed to enable display manager"
-#ystemctl set-default graphical.target || echo "Failed to set default graphical target"
+echo "Setting up display manager..."
+apt install -y greetd &>> "${user_home}/apt-log.txt"
+systemctl enable greetd || echo "Failed to enable display manager"
+systemctl set-default graphical.target || echo "Failed to set default graphical target"
 
 echo "Installing window management tools..."
 apt install -y sway swaybg swayimg swayidle swayimg swaylock sway-notification-center waybar wofi light xdg-desktop-portal-wlr &>> "${user_home}/apt-log.txt"
