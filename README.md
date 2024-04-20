@@ -1,3 +1,3 @@
-# debian-openbox
+# Debian IceWM
 
 WORK IN PROGRESS
