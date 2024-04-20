@@ -28,7 +28,10 @@ done
 
 echo "Copying configuration and necessary files..."
 cp -R dotconfig/* "$user_home/.config/" || echo "Failed to copy configuration files to .config, skipping..."
-chmod +x "$user_home/.config/sway/*.sh" || echo "Failed to make scripts executable, skipping..."
+chmod +x "$user_home/.config/sway/audio.sh" || echo "Failed to make scripts executable, skipping..."
+chmod +x "$user_home/.config/sway/exit.sh" || echo "Failed to make scripts executable, skipping..."
+chmod +x "$user_home/.config/sway/loack_screen.sh" || echo "Failed to make scripts executable, skipping..."
+
 cp -R dotthemes/* "$user_home/.themes/" || echo "Failed to copy themes, skipping..."
 cp -R doticons/* "$user_home/.icons/" || echo "Failed to copy icons, skipping..."
 cp -R deb/* "$user_home/deb/" || echo "Failed to copy .deb files, skipping..."
