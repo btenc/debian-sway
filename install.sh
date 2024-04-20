@@ -58,7 +58,7 @@ echo "Installing Xorg display server..."
 apt install -y xserver-xorg x11-xserver-utils x11-utils xinit dbus-x11 &>> "${user_home}/apt-log.txt"
 
 echo "Installing audio management packages..."
-apt install -y pipewire wireplumber pavucontrol &>> "${user_home}/apt-log.txt"
+apt install -y pipewire wireplumber pavucontrol volumeicon-alsa &>> "${user_home}/apt-log.txt"
 
 echo "Installing preferred applications..."
 echo "    CLI applications..."

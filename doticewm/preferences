@@ -368,7 +368,7 @@ LogoutCancelCommand=""
 ShowTaskBar=1 # 0 / 1
 
 # Task bar at top of the screen
-TaskBarAtTop=1 # 0 / 1
+TaskBarAtTop=0 # 0 / 1
 
 # Auto hide task bar after delay
 TaskBarAutoHide=0 # 0 / 1
@@ -554,7 +554,7 @@ TaskBarCPUDelay=500 # 10-3600000
 TaskBarShowNetStatus=1 # 0 / 1
 
 # Network device for which to show network status (examples:  ppp0, lo, eth0)
-NetworkStatusDevice="enp3s0"
+NetworkStatusDevice="eth0"
 
 # Color of sent data on net monitor
 ColorNetSend="rgb:FF/FF/00"
