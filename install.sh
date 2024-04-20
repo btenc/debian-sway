@@ -51,10 +51,10 @@ echo "Installing base system utilities..."
 apt install -y build-essential eject zip unzip parted wget whois lshw apt-transport-https dirmngr curl ssh traceroute iw acl ufw acpi tree gpg debian-archive-keyring udns-utils &>> "${user_home}/apt-log.txt"
 
 echo "Installing additional utilities..."
-apt install -y network-manager xfce4-power-manager lxappearance &>> "${user_home}/apt-log.txt"
+apt install -y xfce4-power-manager lxappearance &>> "${user_home}/apt-log.txt"
 
 echo "Installing audio management packages..."
-apt install -y pipewire wireplumber pavucontrol volumeicon-alsa &>> "${user_home}/apt-log.txt"
+apt install -y pipewire wireplumber pavucontrol &>> "${user_home}/apt-log.txt"
 
 echo "Installing preferred applications..."
 echo "    CLI applications..."
