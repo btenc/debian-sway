@@ -21,3 +21,7 @@
 #-----------------------------------------------------
 # exec xrandr --output VGA1 --mode "1440x900_60.00"
 # ----------------------------------------------------
+exec xrandr --output VGA1 --mode "1920x1080"
+exec icewmbg
+exec picom
+#TODO: Add network and sound icons...

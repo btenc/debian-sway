@@ -485,13 +485,13 @@ ClockFontNameXft="liberation-mono:size=11:medium"
 ClockClassHint="icewm.XClock"
 
 # Clock time format (strftime format string - see man page "strftime" for more info)
-TimeFormat="%d.%m.%Y - %H:%M"
+TimeFormat="$m-%d-%Y - %r"
 
 # Clock date format for tooltip (strftime format string - see man page "strftime" for more info)
-DateFormat="%B %A %Y/%m/%d %H:%M:%S %Z"
+DateFormat="%A, %B %d, %Y - %H:%M:%S %Z"
 
 # Alternate clock time format (for "flashing" effects - strftime format string - see man page "strftime" for more info)  Note: Leaving this blank may result in NO clock showing at all.
-TimeFormatAlt="%d.%m.%Y - %H:%M"
+TimeFormatAlt="$m-%d-%Y - %r"
 
 # Show mailbox status on the task bar
 TaskBarShowMailboxStatus=0 # 0 / 1
@@ -536,7 +536,7 @@ ColorCPUStatusNice="rgb:00/00/FF"
 ColorCPUStatusIdle="rgb:255/255/00"
 
 # Command to run when CPU status monitor is clicked
-CPUStatusCommand="alacritty -e htop"
+CPUStatusCommand="kitty htop"
 
 # CPU status WM_CLASS hint
 CPUStatusClassHint=""
@@ -566,7 +566,7 @@ ColorNetReceive="rgb:FF/00/FF"
 ColorNetIdle="rgb:35/35/35"
 
 # Command to run when net status monitor is clicked
-NetStatusCommand="alacritty -e netstat -c"
+NetStatusCommand="kitty netstat"
 
 # Net status WM_CLASS hint
 NetStatusClassHint=""
@@ -797,7 +797,7 @@ ConfirmLogout=1 # 0 / 1
 LockCommand="xlock"
 
 # Terminal emulator (must accept -e option)
-TerminalCommand="alacritty"
+TerminalCommand="kitty"
 
 # Command to reboot the system
 RebootCommand="doas reboot"

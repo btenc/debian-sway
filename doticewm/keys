@@ -20,18 +20,18 @@ key "XF86AudioLowerVolume"		pactl set-sink-volume 0 -3%
 key "XF86AudioRaiseVolume"		pactl set-sink-volume 0 +3%
 key "XF86AudioMute"			pactl set-sink-mute 0 toggle
 #---------------------------------------------------------
-key "super+s" firefox-esr
-key "Super+space" rofi -show run
-key "Super+enter" kitty
-key "Super+print" flameshot gui
-key "print"       flameshot full
+key "Super+B" firefox-esr
+key "Super+Space" rofi -show run
+key "Super+Return" kitty
+key "Super+S" flameshot full
+key "Super+Alt+S" flameshot gui
 #---------------------------------------------------------
-key "Ctrl+Alt+Home"  icesh -f sizeto 49% 49% top left
-key "Ctrl+Alt+Up"    icesh -f sizeto 100% 50% top left
-key "Ctrl+Alt+Prior" icesh -f sizeto 49% 49% top right
-key "Ctrl+Alt+Right" icesh -f sizeto 49% 100% top right
-key "Ctrl+Alt+Next"  icesh -f sizeto 49% 49% bottom right
-key "Ctrl+Alt+Down"  icesh -f sizeto 100% 49% bottom left
-key "Ctrl+Alt+End"   icesh -f sizeto 49% 49% bottom left
-key "Ctrl+Alt+Left"  icesh -f sizeto 50% 100% top left
-key "Ctrl+Alt+c" icesh -f sizeto 96% 96% center
+key "Alt+Home"  icesh -f sizeto 49% 49% top left
+key "Alt+Up"    icesh -f sizeto 100% 50% top left
+key "Alt+Prior" icesh -f sizeto 49% 49% top right
+key "Alt+Right" icesh -f sizeto 49% 100% top right
+key "Alt+Next"  icesh -f sizeto 49% 49% bottom right
+key "Alt+Down"  icesh -f sizeto 100% 49% bottom left
+key "Alt+End"   icesh -f sizeto 49% 49% bottom left
+key "Alt+Left"  icesh -f sizeto 50% 100% top left
+key "Alt+F" icesh -f sizeto 96% 96% center

@@ -5,7 +5,7 @@
 #
 
 prog "Terminal" "" kitty
-prog "Files" "" ranger
+prog "Files" "" kitty ranger
 prog "Internet" "" firefox-esr
 separator
-menuprog "Programs" icewm-menu-fdo --sep-before --no-sep-others
+menuprog "Programs" folder icewm-menu-fdo 
