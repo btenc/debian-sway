@@ -54,7 +54,7 @@ echo "Installing base system utilities..."
 apt install -y build-essential eject zip unzip parted wget whois lshw apt-transport-https dirmngr curl ssh traceroute iw acl ufw acpi tree gpg debian-archive-keyring udns-utils &>> "${user_home}/apt-log.txt"
 
 echo "Installing additional utilities..."
-apt install -y xfce4-power-manager lxappearance &>> "${user_home}/apt-log.txt"
+apt install -y xfce4-power-manager lxappearance network-manager &>> "${user_home}/apt-log.txt"
 
 echo "Installing audio management packages..."
 apt install -y pipewire wireplumber pavucontrol &>> "${user_home}/apt-log.txt"
@@ -84,10 +84,10 @@ echo "Installing fonts..."
 apt install -y fonts-recommended fonts-font-awesome &>> "${user_home}/apt-log.txt"
 fc-cache -vf &>> "${user_home}/apt-log.txt"
 
-echo "Setting up display manager..."
-apt install -y sddm &>> "${user_home}/apt-log.txt"
-systemctl enable sddm || echo "Failed to enable display manager"
-systemctl set-default graphical.target || echo "Failed to set default graphical target"
+#echo "Setting up display manager..."
+#apt install -y sddm &>> "${user_home}/apt-log.txt"
+#systemctl enable sddm || echo "Failed to enable display manager"
+#ystemctl set-default graphical.target || echo "Failed to set default graphical target"
 
 echo "Installing window management tools..."
 apt install -y sway swaybg swayimg swayidle swayimg swaylock sway-notification-center waybar wofi light xdg-desktop-portal-wlr &>> "${user_home}/apt-log.txt"
