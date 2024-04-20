@@ -19,7 +19,7 @@ user_home="/home/$username"
 echo "apt-log will be located at /home/$username"
 
 # Home directories to be created
-directories=(.config .icons .themes .icewm .icewm/themes Pictures/wallpapers Documents Videos Music appimages deb Downloads dev/repos dev/scripts disks)
+directories=(.config ./config/sway .config/waybar .config/wofi .icons .themes Pictures/wallpapers Documents Videos Music appimages deb Downloads dev/repos dev/scripts disks)
 
 echo "Creating directories for user $username..."
 for dir in "${directories[@]}"; do
@@ -28,17 +28,16 @@ done
 
 echo "Copying configuration and necessary files..."
 cp -R dotconfig/* "$user_home/.config/" || echo "Failed to copy configuration files to .config, skipping..."
-cp -R doticewm/* "$user_home/.icewm/" || echo "Failed to copy configuration files to .icewm, skipping..."
-chmod +x "$user_home/.icewm/startup" || echo "Failed to make .icewm/startup executable, skipping..."
+chmod +x "$user_home/.config/sway/*.sh" || echo "Failed to make scripts executable, skipping..."
 cp -R dotthemes/* "$user_home/.themes/" || echo "Failed to copy themes, skipping..."
 cp -R doticons/* "$user_home/.icons/" || echo "Failed to copy icons, skipping..."
 cp -R deb/* "$user_home/deb/" || echo "Failed to copy .deb files, skipping..."
 
 # Check if bg.jpg exists before copying
 if [ -f "bg.jpg" ]; then
-    cp bg.jpg "$user_home/Pictures/wallpapers/" || echo "Failed to copy bg.jpg"
+    cp wallpaper.jpg "$user_home/.config/sway/wallpaper.jpg" || echo "Failed to copy wallpaper.jpg"
 else
-    echo "Warning: 'bg.jpg' not found, skipping..."
+    echo "Warning: 'wallpaper.jpg' not found, skipping..."
 fi
 
 chown -R $username:$username "$user_home" || echo "Failed to change ownership to $username"
@@ -52,25 +51,22 @@ echo "Installing base system utilities..."
 apt install -y build-essential eject zip unzip parted wget whois lshw apt-transport-https dirmngr curl ssh traceroute iw acl ufw acpi tree gpg debian-archive-keyring udns-utils &>> "${user_home}/apt-log.txt"
 
 echo "Installing additional utilities..."
-apt install -y lxpolkit xfce4-power-manager arandr network-manager &>> "${user_home}/apt-log.txt"
-
-echo "Installing Xorg display server..."
-apt install -y xserver-xorg x11-xserver-utils x11-utils xinit dbus-x11 &>> "${user_home}/apt-log.txt"
+apt install -y network-manager xfce4-power-manager lxappearance &>> "${user_home}/apt-log.txt"
 
 echo "Installing audio management packages..."
 apt install -y pipewire wireplumber pavucontrol volumeicon-alsa &>> "${user_home}/apt-log.txt"
 
 echo "Installing preferred applications..."
 echo "    CLI applications..."
-apt install -y vim zoxide ranger htop neofetch figlet qalc &>> "${user_home}/apt-log.txt"
+apt install -y vim zoxide ranger htop neofetch figlet qalc zathura &>> "${user_home}/apt-log.txt"
 echo "    GUI applications..."
-apt install -y vlc feh audacity gparted gimp flameshot strawberry libreoffice thunderbird qalculate-gtk imagemagick &>> "${user_home}/apt-log.txt"
+apt install -y clapper clipman audacity gparted gimp flameshot strawberry libreoffice thunderbird qalculate-gtk imagemagick &>> "${user_home}/apt-log.txt"
 
 echo "Installing file manager and related plugins..."
-apt install -y thunar thunar-archive-plugin thunar-gtkhash thunar-media-tags-plugin thunar-volman &>> "${user_home}/apt-log.txt"
+apt install -y pcmanfm &>> "${user_home}/apt-log.txt"
 
 echo "Installing terminal..."
-apt install -y kitty &>> "${user_home}/apt-log.txt"
+apt install -y foot &>> "${user_home}/apt-log.txt"
 
 echo "Installing browser and PWA functionality..."
 apt install -y firefox-esr &>> "${user_home}/apt-log.txt"
@@ -86,12 +82,12 @@ apt install -y fonts-recommended fonts-font-awesome &>> "${user_home}/apt-log.tx
 fc-cache -vf &>> "${user_home}/apt-log.txt"
 
 echo "Setting up display manager..."
-apt install -y lightdm light-locker &>> "${user_home}/apt-log.txt"
-systemctl enable lightdm || echo "Failed to enable display manager"
+apt install -y sddm &>> "${user_home}/apt-log.txt"
+systemctl enable sddm || echo "Failed to enable display manager"
 systemctl set-default graphical.target || echo "Failed to set default graphical target"
 
 echo "Installing window management tools..."
-apt install -y icewm rofi picom lxappearance &>> "${user_home}/apt-log.txt"
+apt install -y sway swaybg swayimg swayidle swayimg swaylock sway-notification-center waybar wofi light xdg-desktop-portal-wlr &>> "${user_home}/apt-log.txt"
 
 echo "Installing local .deb packages..."
 deb_dir="$user_home/deb"
