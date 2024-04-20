@@ -29,7 +29,7 @@ done
 echo "Copying configuration and necessary files..."
 cp -R dotconfig/* "$user_home/.config/" || echo "Failed to copy configuration files to .config, skipping..."
 cp -R doticewm/* "$user_home/.icewm/" || echo "Failed to copy configuration files to .icewm, skipping..."
-chmod +x "$user_home/.icewm/startup" || echo "Failed to make .icewm/startup executble, skipping..."
+chmod +x "$user_home/.icewm/startup" || echo "Failed to make .icewm/startup executable, skipping..."
 cp -R dotthemes/* "$user_home/.themes/" || echo "Failed to copy themes, skipping..."
 cp -R doticons/* "$user_home/.icons/" || echo "Failed to copy icons, skipping..."
 cp -R deb/* "$user_home/deb/" || echo "Failed to copy .deb files, skipping..."
