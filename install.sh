@@ -28,16 +28,16 @@ done
 
 echo "Copying configuration and necessary files..."
 cp -R dotconfig/* "$user_home/.config/" || echo "Failed to copy configuration files to .config, skipping..."
-chmod +x "$user_home/.config/sway/audio.sh" || echo "Failed to make scripts executable, skipping..."
-chmod +x "$user_home/.config/sway/exit.sh" || echo "Failed to make scripts executable, skipping..."
-chmod +x "$user_home/.config/sway/lock_screen.sh" || echo "Failed to make scripts executable, skipping..."
+for script in "$user_home/.config/sway"/*.sh; do
+    chmod +x "$script" || echo "Failed to make $script executable, skipping..."
+done
 
 cp -R dotthemes/* "$user_home/.themes/" || echo "Failed to copy themes, skipping..."
 cp -R doticons/* "$user_home/.icons/" || echo "Failed to copy icons, skipping..."
 cp -R deb/* "$user_home/deb/" || echo "Failed to copy .deb files, skipping..."
 
 # Check if bg.jpg exists before copying
-if [ -f "bg.jpg" ]; then
+if [ -f "wallpaper.jpg" ]; then
     cp wallpaper.jpg "$user_home/.config/sway/wallpaper.jpg" || echo "Failed to copy wallpaper.jpg"
 else
     echo "Warning: 'wallpaper.jpg' not found, skipping..."
@@ -65,7 +65,7 @@ apt install -y vim zoxide ranger htop neofetch figlet qalc zathura &>> "${user_h
 echo "    GUI applications..."
 apt install -y clapper clipman audacity gparted gimp flameshot strawberry libreoffice thunderbird qalculate-gtk imagemagick &>> "${user_home}/apt-log.txt"
 
-echo "Installing file manager and related plugins..."
+echo "Installing file manager..."
 apt install -y pcmanfm &>> "${user_home}/apt-log.txt"
 
 echo "Installing terminal..."
