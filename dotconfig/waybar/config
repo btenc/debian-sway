@@ -76,7 +76,7 @@
         "format": "{}",
         "signal": 8,
         "interval": "once",
-        "exec": "/home/jay/.config/sway/audio.sh",
+        "exec": "/home/bten/.config/sway/audio.sh",
         "on-click": "pavucontrol",
     },
 
