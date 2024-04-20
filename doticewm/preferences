@@ -397,7 +397,7 @@ TaskBarShowTray=0 # 0 / 1
 TrayDrawBevel=0 # 0 / 1
 
 # Launch task bar programs (clock, etc.) on a single click
-TaskBarLaunchOnSingleClick=0 # 0 / 1
+TaskBarLaunchOnSingleClick=1 # 0 / 1
 
 # Show windows on the task bar
 TaskBarShowWindows=1 # 0 / 1
@@ -485,13 +485,13 @@ ClockFontNameXft="liberation-mono:size=11:medium"
 ClockClassHint="icewm.XClock"
 
 # Clock time format (strftime format string - see man page "strftime" for more info)
-TimeFormat="$m-%d-%Y - %r"
+TimeFormat="%m-%d-%Y - %r"
 
 # Clock date format for tooltip (strftime format string - see man page "strftime" for more info)
 DateFormat="%A, %B %d, %Y - %H:%M:%S %Z"
 
 # Alternate clock time format (for "flashing" effects - strftime format string - see man page "strftime" for more info)  Note: Leaving this blank may result in NO clock showing at all.
-TimeFormatAlt="$m-%d-%Y - %r"
+TimeFormatAlt="%m-%d-%Y - %r"
 
 # Show mailbox status on the task bar
 TaskBarShowMailboxStatus=0 # 0 / 1
@@ -1018,10 +1018,10 @@ KeySysWorkspacePrev="Super+Left"
 KeySysWorkspaceNext="Super+Right"
 
 # "Take window to previous workspace" shortcut
-KeySysWorkspacePrevTakeWin="Super+Shift+Left"
+KeySysWorkspacePrevTakeWin="Super+Alt+Left"
 
 # "Take window to next workspace" shortcut
-KeySysWorkspaceNextTakeWin="Super+Shift+Right"
+KeySysWorkspaceNextTakeWin="Super+Alt+Right"
 
 # "Workspace 1" shortcut
 KeySysWorkspace1="Super+1"
@@ -1060,16 +1060,16 @@ KeySysWorkspace11=""
 KeySysWorkspace12=""
 
 # "Take window to workspace 1" shortcut
-KeySysWorkspace1TakeWin="Super+Shift+1"
+KeySysWorkspace1TakeWin="Super+Alt+1"
 
 # "Take window to workspace 2" shortcut
-KeySysWorkspace2TakeWin="Super+Shift+2"
+KeySysWorkspace2TakeWin="Super+Alt+2"
 
 # "Take window to workspace 3" shortcut
-KeySysWorkspace3TakeWin="Super+Shift+3"
+KeySysWorkspace3TakeWin="Super+Alt+3"
 
 # "Take window to workspace 4" shortcut
-KeySysWorkspace4TakeWin="Super+Shift+4"
+KeySysWorkspace4TakeWin="Super+Alt+4"
 
 # "Take window to workspace 5" shortcut
 KeySysWorkspace5TakeWin=""
@@ -1096,31 +1096,31 @@ KeySysWorkspace11TakeWin=""
 KeySysWorkspace12TakeWin=""
 
 # "Arrange Windows-North" shortcut
-KeyWinArrangeN="Super+w"
+KeyWinArrangeN=""
 
 # "Arrange Windows-Northeast" shortcut
-KeyWinArrangeNE="Super+e"
+KeyWinArrangeNE=""
 
 # "Arrange Windows-East" shortcut
-KeyWinArrangeE="Super+d"
+KeyWinArrangeE=""
 
 # "Arrange Windows-Southeast" shortcut
-KeyWinArrangeSE="Super+c"
+KeyWinArrangeSE=""
 
 # "Arrange Windows-South" shortcut
-KeyWinArrangeS="Super+x"
+KeyWinArrangeS=""
 
 # "Arrange Windows-Southwest" shortcut
-KeyWinArrangeSW="Super+z"
+KeyWinArrangeSW=""
 
 # "Arrange Windows-West" shortcut
-KeyWinArrangeW="Super+a"
+KeyWinArrangeW=""
 
 # "Arrange Windows-Northwest" shortcut
-KeyWinArrangeNW="Super+q"
+KeyWinArrangeNW=""
 
 # "Arrange Windows-Center" shortcut
-KeyWinArrangeC="Super+s"
+KeyWinArrangeC=""
 
 # "Show Desktop" shortcut
 KeySysShowDesktop=""
@@ -1174,7 +1174,7 @@ WorkspaceStatusTime=2500 # 0-6000
 TaskBarShowTray=0 # 0/1
 
 #  Enable the system tray in the taskbar
-TaskBarEnableSystemTray=0 # 0/1
+TaskBarEnableSystemTray=1 # 0/1
 
 #  Show Ellipsis in taskbar items
 ShowEllipsis=0 # 0/1
