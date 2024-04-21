@@ -136,15 +136,15 @@ bindsym $mod+r mode "resize"
 # Keyboard Shortcuts (Workspaces) #
 #=================================#
 # Switch to workspace
-set $ws1 "1 - Communication"
-set $ws2 "2 - Browsing"
-set $ws3 "3 - System Administration"
-set $ws4 "4 - Learn Linux TV"
-set $ws5 "5 - Media"
-set $ws6 "6 - Writing"
-set $ws7 "7 - Homelab"
-set $ws8 "8 - Home Assistant"
-set $ws9 "9 - Unwind"
+set $ws1 " 1 "
+set $ws2 " 2 "
+set $ws3 " 3 "
+set $ws4 " 4 "
+set $ws5 " 5 "
+set $ws6 " 6 "
+set $ws7 " 7 "
+set $ws8 " 8 "
+set $ws9 " 9 "
 
 # Move between workspaces
 bindsym $mod+1 workspace $ws1
@@ -233,7 +233,7 @@ set $menu wofi --show drun  -i | xargs swaymsg exec --
 bindsym $mod+shift+b exec firefox-esr
 
 # Open a file manager:
-bindsym ctrl+$mod+f exec pcmanfm
+bindsym ctrl+$mod+f exec thunar
 
 # Open a terminal emulator:
 set $term foot
@@ -247,6 +247,19 @@ bindsym $mod+space exec $menu
 
 # Open the application launcher (alternate version):
 bindsym $mod+d exec $menu
+
+#======#
+# GTK  #
+#======#
+exec {
+    gsettings set org.gnome.desktop.interface color-scheme 'prefer-dark'
+    gsettings set org.gtk.Settings.FileChooser window-size '(1000, 500)'
+    gsettings set org.gnome.desktop.interface gtk-theme 'Adwaita-Dark'
+    gsettings set org.gnome.desktop.interface.wm.preferences theme 'Adwaita-Dark'
+    gsettings set org.gnome.desktop.interface icon-theme 'Adwaita-Dark'
+    gsettings set org.gnome.desktop.interface cursor-size '48'
+    gsettings set org.gnome.desktop.interface font-name 'Sans 12'
+}
 
 #======#
 # Misc #

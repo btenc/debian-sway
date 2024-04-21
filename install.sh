@@ -37,7 +37,7 @@ cp -R doticons/* "$user_home/.icons/" || echo "Failed to copy icons, skipping...
 cp -R deb/* "$user_home/deb/" || echo "Failed to copy .deb files, skipping..."
 cp dotbash_profile "$user_home/.bash_profile" || echo "Failed to copy bash profile, skipping..."
 
-# Check if bg.jpg exists before copying
+# Check if wallpaper.jpg exists before copying
 if [ -f "wallpaper.jpg" ]; then
     cp wallpaper.jpg "$user_home/.config/sway/wallpaper.jpg" || echo "Failed to copy wallpaper.jpg"
 else
@@ -52,22 +52,24 @@ apt update &>> "${user_home}/apt-log.txt" && apt upgrade -y &>> "${user_home}/ap
 
 # Installation of various packages
 echo "Installing base system utilities..."
-apt install -y build-essential eject dosfstools zip unzip parted wget whois lshw apt-transport-https dirmngr curl ssh traceroute iw acl ufw acpi tree gpg debian-archive-keyring udns-utils libnotify-bin &>> "${user_home}/apt-log.txt"
+apt install -y build-essential eject dosfstools zip unzip parted wget whois lshw apt-transport-https dirmngr curl ssh traceroute iw acl ufw tree gpg debian-archive-keyring udns-utils libnotify-bin &>> "${user_home}/apt-log.txt"
 
-#echo "Installing additional utilities..."
-apt install -y network-manager &>> "${user_home}/apt-log.txt"
+echo "Installing additional utilities..."
+apt install -y dialog mtools dosfstools avahi-daemon acpi acpid gvfs-backends network-manager &>> "${user_home}/apt-log.txt"
+systemctl enable avahi-daemon || echo "Failed to enable avahi daemon"
+systemctl enable acpid || echo "Failed to enable acpid"
 
 echo "Installing audio management packages..."
 apt install -y pipewire wireplumber pavucontrol pamixer &>> "${user_home}/apt-log.txt"
 
 echo "Installing preferred applications..."
-echo "    CLI applications..."
+echo "  CLI applications..."
 apt install -y vim zoxide ranger cmus htop neofetch figlet rsync wireguard qalc zathura &>> "${user_home}/apt-log.txt"
-echo "    GUI applications..."
+echo "  GUI applications..."
 apt install -y mpv clipman audacity gparted gimp flameshot strawberry libreoffice thunderbird qalculate-gtk imagemagick &>> "${user_home}/apt-log.txt"
 
 echo "Installing file manager..."
-apt install -y pcmanfm &>> "${user_home}/apt-log.txt"
+apt install -y thunar thunar-archive-plugin thunar-media-tags-plugin thunar-volman &>> "${user_home}/apt-log.txt"
 
 echo "Installing terminal..."
 apt install -y foot &>> "${user_home}/apt-log.txt"
@@ -91,7 +93,7 @@ fc-cache -vf &>> "${user_home}/apt-log.txt"
 #systemctl set-default graphical.target || echo "Failed to set default graphical target"
 
 echo "Installing window management tools..."
-apt install -y sway swaybg swayimg swayidle swayimg swaylock sway-notification-center waybar wofi light xdg-desktop-portal-wlr &>> "${user_home}/apt-log.txt"
+apt install -y sway swaybg swayimg swayidle swayimg swaylock sway-notification-center waybar wofi light xwayland xdg-desktop-portal-wlr &>> "${user_home}/apt-log.txt"
 
 echo "Installing local .deb packages..."
 deb_dir="$user_home/deb"
@@ -104,6 +106,6 @@ fi
 echo "Enabling wireplumber service..."
 sudo -u $username XDG_RUNTIME_DIR=/run/user/$(id -u $username) systemctl --user enable wireplumber.service || echo "Failed to enable wireplumber service for $username"
 
-apt autopurge &>> "${user_home}/apt-log.txt"
+apt autoremove &>> "${user_home}/apt-log.txt"
 
 echo "Setup complete. You can now reboot."
