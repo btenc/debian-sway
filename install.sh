@@ -52,19 +52,19 @@ apt update &>> "${user_home}/apt-log.txt" && apt upgrade -y &>> "${user_home}/ap
 
 # Installation of various packages
 echo "Installing base system utilities..."
-apt install -y build-essential eject zip unzip parted wget whois lshw apt-transport-https dirmngr curl ssh traceroute iw acl ufw acpi tree gpg debian-archive-keyring udns-utils &>> "${user_home}/apt-log.txt"
+apt install -y build-essential eject zip unzip parted wget whois lshw apt-transport-https dirmngr curl ssh traceroute iw acl ufw acpi tree gpg debian-archive-keyring udns-utils libnotify-bin &>> "${user_home}/apt-log.txt"
 
-echo "Installing additional utilities..."
-apt install -y xfce4-power-manager lxappearance network-manager &>> "${user_home}/apt-log.txt"
+#echo "Installing additional utilities..."
+apt install -y network-manager &>> "${user_home}/apt-log.txt"
 
 echo "Installing audio management packages..."
-apt install -y pipewire wireplumber pavucontrol &>> "${user_home}/apt-log.txt"
+apt install -y pipewire wireplumber pavucontrol pamixer &>> "${user_home}/apt-log.txt"
 
 echo "Installing preferred applications..."
 echo "    CLI applications..."
-apt install -y vim zoxide ranger htop neofetch figlet qalc zathura &>> "${user_home}/apt-log.txt"
+apt install -y vim zoxide ranger cmus htop neofetch figlet qalc zathura &>> "${user_home}/apt-log.txt"
 echo "    GUI applications..."
-apt install -y clapper clipman audacity gparted gimp flameshot strawberry libreoffice thunderbird qalculate-gtk imagemagick &>> "${user_home}/apt-log.txt"
+apt install -y mpv clipman audacity gparted gimp flameshot strawberry libreoffice thunderbird qalculate-gtk imagemagick &>> "${user_home}/apt-log.txt"
 
 echo "Installing file manager..."
 apt install -y pcmanfm &>> "${user_home}/apt-log.txt"
