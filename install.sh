@@ -83,14 +83,15 @@ else
   echo "Failed to download or process the GPG key for Firefox PWA."
 fi
 
-echo "Installing Flatpak..."
+echo "Installing Flatpak and adding Flathub repository..."
 apt install -y flatpak
-flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo || echo "Failed to add flathub repository"
+flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo || echo "Failed to add Flathub repository"
+echo "Installing Flatpak apps from Flathub..."
 flatpak install -y flathub md.obsidian.Obsidian || echo "Failed to install Obsidian from flathub"
-ln -s /var/lib/flatpak/exports/bin/md.obsidian.Obsidian /usr/bin/Obsidian || echo "Failed to create symlink"
+ln -s /var/lib/flatpak/exports/bin/md.obsidian.Obsidian /usr/bin/Obsidian || echo "Failed to create symlink for Obsidian"
 #If you like runescape...
 #flatpak install -y flathub com.adamcake.Bolt || echo "Failed to install Bolt from flathub"
-#ln -s /var/lib/flatpak/exports/bin/com.adamcake.Bolt /usr/bin/Bolt || echo "Failed to create symlink"
+#ln -s /var/lib/flatpak/exports/bin/com.adamcake.Bolt /usr/bin/Bolt || echo "Failed to create symlink for Bolt"
 
 echo "Installing fonts..."
 apt install -y fonts-recommended fonts-font-awesome &>> "${user_home}/apt-log.txt"
