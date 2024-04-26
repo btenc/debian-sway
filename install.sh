@@ -83,6 +83,15 @@ else
   echo "Failed to download or process the GPG key for Firefox PWA."
 fi
 
+echo "Installing Flatpak..."
+apt install -y flatpak
+flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo || echo "Failed to add flathub repository"
+flatpak install -y flathub md.obsidian.Obsidian
+ln -s /var/lib/flatpak/exports/bin/md.obsidian.Obsidian /usr/bin/Obsidian
+#If you like runescape...
+#flatpak install -y flathub com.adamcake.Bolt
+#ln -s /var/lib/flatpak/exports/bin/com.adamcake.Bolt /usr/bin/Bolt
+
 echo "Installing fonts..."
 apt install -y fonts-recommended fonts-font-awesome &>> "${user_home}/apt-log.txt"
 fc-cache -vf &>> "${user_home}/apt-log.txt"
