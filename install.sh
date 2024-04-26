@@ -86,11 +86,11 @@ fi
 echo "Installing Flatpak..."
 apt install -y flatpak
 flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo || echo "Failed to add flathub repository"
-flatpak install -y flathub md.obsidian.Obsidian
-ln -s /var/lib/flatpak/exports/bin/md.obsidian.Obsidian /usr/bin/Obsidian
+flatpak install -y flathub md.obsidian.Obsidian || echo "Failed to install Obsidian from flathub"
+ln -s /var/lib/flatpak/exports/bin/md.obsidian.Obsidian /usr/bin/Obsidian || echo "Failed to create symlink"
 #If you like runescape...
-#flatpak install -y flathub com.adamcake.Bolt
-#ln -s /var/lib/flatpak/exports/bin/com.adamcake.Bolt /usr/bin/Bolt
+#flatpak install -y flathub com.adamcake.Bolt || echo "Failed to install Bolt from flathub"
+#ln -s /var/lib/flatpak/exports/bin/com.adamcake.Bolt /usr/bin/Bolt || echo "Failed to create symlink"
 
 echo "Installing fonts..."
 apt install -y fonts-recommended fonts-font-awesome &>> "${user_home}/apt-log.txt"
