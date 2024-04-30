@@ -19,7 +19,7 @@ user_home="/home/$username"
 echo "apt-log will be located at /home/$username"
 
 # Home directories to be created
-directories=(.config ./config/sway .config/waybar .config/wofi .icons .themes Pictures/wallpapers Documents Videos Music appimages deb Downloads dev/repos dev/scripts disks)
+directories=(.config ./config/sway .config/waybar .config/wofi .icons .themes pictures/wallpapers pictures/screenshots documents videos music appimages deb downloads dev/repos dev/scripts disks)
 
 echo "Creating directories for user $username..."
 for dir in "${directories[@]}"; do
@@ -64,9 +64,10 @@ apt install -y pipewire wireplumber pavucontrol pamixer &>> "${user_home}/apt-lo
 
 echo "Installing preferred applications..."
 echo "  CLI applications..."
-apt install -y vim zoxide ranger cmus htop neofetch figlet rsync wireguard qalc zathura &>> "${user_home}/apt-log.txt"
+apt install -y vim zoxide ranger cmus htop neofetch figlet rsync wireguard qalc zathura scrot &>> "${user_home}/apt-log.txt"
+#todo: add scrot macro: scrot ~/Pictures/Screenshots/%m-%d-%Y_%I:%M:%S.png
 echo "  GUI applications..."
-apt install -y mpv clipman audacity gparted gimp flameshot strawberry libreoffice thunderbird qalculate-gtk imagemagick &>> "${user_home}/apt-log.txt"
+apt install -y mpv clipman audacity gparted gimp strawberry libreoffice thunderbird qalculate-gtk &>> "${user_home}/apt-log.txt"
 
 echo "Installing file manager..."
 apt install -y thunar thunar-archive-plugin thunar-media-tags-plugin thunar-volman &>> "${user_home}/apt-log.txt"
