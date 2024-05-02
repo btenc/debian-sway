@@ -19,7 +19,7 @@ user_home="/home/$username"
 echo "apt-log will be located at /home/$username"
 
 # Home directories to be created
-directories=(.config ./config/sway .config/waybar .config/wofi .icons .themes pictures/wallpapers pictures/screenshots documents videos music appimages deb downloads dev/repos dev/scripts disks)
+directories=(.config ./config/sway .config/waybar .config/Thunar .config/wofi .icons .themes pictures/wallpapers pictures/screenshots documents videos music appimages deb downloads dev/repos dev/scripts disks)
 
 echo "Creating directories for user $username..."
 for dir in "${directories[@]}"; do
