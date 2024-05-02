@@ -6,7 +6,7 @@
 	<submenu></submenu>
 	<unique-id>1713665870226262-1</unique-id>
 	<command>foot</command>
-	<description>Example for a custom action</description>
+	<description>Open the foot terminal emulator at the current directory</description>
 	<range></range>
 	<patterns>*</patterns>
 	<startup-notify/>
