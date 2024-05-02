@@ -39,7 +39,7 @@ gaps outer 3
 default_border pixel 2
 
 # Set the Wallpaper:
-output * bg $HOME/.config/sway/wallpaper.jpg fill
+output * bg $HOME/pictures/wallpapers/wallpaper.jpg fill
 
 
 #====================================#

@@ -39,7 +39,7 @@ cp dotbash_profile "$user_home/.bash_profile" || echo "Failed to copy bash profi
 
 # Check if wallpaper.jpg exists before copying
 if [ -f "wallpaper.jpg" ]; then
-    cp wallpaper.jpg "$user_home/.config/sway/wallpaper.jpg" || echo "Failed to copy wallpaper.jpg"
+    cp wallpaper.jpg "$user_home/pictures/wallpapers/wallpaper.jpg" || echo "Failed to copy wallpaper.jpg"
 else
     echo "Warning: 'wallpaper.jpg' not found, skipping..."
 fi
