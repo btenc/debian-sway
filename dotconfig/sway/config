@@ -256,9 +256,10 @@ bindsym $mod+Print exec grim -g "$(slurp)" "$HOME/pictures/screenshots/$(date '+
 #======#
 exec {
     gsettings set org.gnome.desktop.interface color-scheme prefer-dark
-    gsettings set org.gtk.Settings.FileChooser window-size (1000, 500)
+    #gsettings set org.gtk.Settings.FileChooser window-size (1000, 500)
     gsettings set org.gnome.desktop.interface gtk-theme Adwaita-dark
     gsettings set org.gnome.desktop.interface.wm.preferences theme Adwaita-dark
+    #gsettings set org.gnome.desktop.interface cursor-size 23
     gsettings set org.gnome.desktop.interface icon-theme Adwaita-dark
     gsettings set org.gnome.desktop.interface font-name Sans 12
 }
