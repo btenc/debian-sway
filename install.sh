@@ -65,7 +65,7 @@ apt install -y pipewire wireplumber pavucontrol pamixer &>> "${user_home}/apt-lo
 echo "Installing preferred applications..."
 echo "  CLI applications..."
 apt install -y vim zoxide ranger cmus htop neofetch figlet rsync wireguard qalc zathura scrot &>> "${user_home}/apt-log.txt"
-#todo: add scrot macro: scrot ~/Pictures/Screenshots/%m-%d-%Y_%I:%M:%S.png scrot -s -f ~/Pictures/Screenshots/%m-%d-%Y_%I:%M:%S.png
+#todo: add scrot macro: scrot ~/pictures/screenshots/%m-%d-%Y_%I:%M:%S.png scrot -s -f ~/pictures/screenshots/%m-%d-%Y_%I:%M:%S.png
 echo "  GUI applications..."
 apt install -y mpv clipman audacity gparted gimp strawberry libreoffice thunderbird qalculate-gtk &>> "${user_home}/apt-log.txt"
 
@@ -105,6 +105,7 @@ fc-cache -vf &>> "${user_home}/apt-log.txt"
 
 echo "Installing window management tools..."
 apt install -y sway swaybg swayimg swayidle swayimg swaylock sway-notification-center waybar wofi light xwayland xdg-desktop-portal-wlr &>> "${user_home}/apt-log.txt"
+apt install -y libglib2.0-bin gnome-themes-extra &>> "${user_home}/apt-log.txt"
 
 echo "Installing local .deb packages..."
 deb_dir="$user_home/deb"
