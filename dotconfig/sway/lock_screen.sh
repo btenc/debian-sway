@@ -7,7 +7,7 @@ swayidle -w \
 
 
 # Lock screen immediately
-swaylock --image ~/.config/sway/wallpaper.jpg
+swaylock --image ~/pictures/wallpapers/wallpaper.jpg
 
 
 # Kill the last instance of swayidle so the timer doesn't keep running in background
