@@ -35,6 +35,7 @@ done
 cp -R dotthemes/* "$user_home/.themes/" || echo "Failed to copy themes, skipping..."
 cp -R doticons/* "$user_home/.icons/" || echo "Failed to copy icons, skipping..."
 cp -R deb/* "$user_home/deb/" || echo "Failed to copy .deb files, skipping..."
+cp -R appimages/* "$user_home/appimages/" || echo "Failed to copy appimage files, skipping..."
 cp dotbash_profile "$user_home/.bash_profile" || echo "Failed to copy bash profile, skipping..."
 
 # Check if wallpaper.jpg exists before copying
