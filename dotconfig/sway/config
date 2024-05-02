@@ -67,12 +67,9 @@ bindsym $mod+Shift+c reload
 bindsym $mod+Shift+e exec $HOME/.config/sway/exit.sh
 
 # Screen locking (automatic, with a timeout)
-set $lock swaylock -c 550000
 exec swayidle -w \
-    timeout 600 $lock \
-    timeout 570 'swaymsg "output * dpms off"' \
-    resume 'swaymsg "output * dpms on"' \
-    before-sleep $lock
+	timeout 240 '$HOME/.config/sway/lock_screen.sh' \
+	before-sleep '$HOME/.config/sway/scripts/lock_screen.sh'
 
 # Screen locking (manual)
 set $lock_screen exec bash ~/.config/sway/lock_screen.sh
@@ -237,7 +234,7 @@ bindsym ctrl+$mod+f exec thunar
 
 # Open a terminal emulator:
 set $term foot
-bindsym $mod+t exec $term
+bindsym $mod+Return exec $term
 
 # Kill focused window:
 bindsym $mod+Shift+q kill
@@ -248,17 +245,22 @@ bindsym $mod+space exec $menu
 # Open the application launcher (alternate version):
 bindsym $mod+d exec $menu
 
+# Screenshot the whole screen
+bindsym $mod+Shift+Print exec grim "$HOME/pictures/screenshots/$(date '+%m-%d-%Y_%I:%M:%S').png"
+
+# Screenshot a selection of the screen (with a freeze)
+bindsym $mod+Print exec grim -g "$(slurp)" "$HOME/pictures/screenshots/$(date '+%m-%d-%Y_%I:%M:%S').png"
+
 #======#
 # GTK  #
 #======#
 exec {
-    gsettings set org.gnome.desktop.interface color-scheme 'prefer-dark'
-    gsettings set org.gtk.Settings.FileChooser window-size '(1000, 500)'
-    gsettings set org.gnome.desktop.interface gtk-theme 'Adwaita-Dark'
-    gsettings set org.gnome.desktop.interface.wm.preferences theme 'Adwaita-Dark'
-    gsettings set org.gnome.desktop.interface icon-theme 'Adwaita-Dark'
-    gsettings set org.gnome.desktop.interface cursor-size '48'
-    gsettings set org.gnome.desktop.interface font-name 'Sans 12'
+    gsettings set org.gnome.desktop.interface color-scheme prefer-dark
+    gsettings set org.gtk.Settings.FileChooser window-size (1000, 500)
+    gsettings set org.gnome.desktop.interface gtk-theme Adwaita-dark
+    gsettings set org.gnome.desktop.interface.wm.preferences theme Adwaita-dark
+    gsettings set org.gnome.desktop.interface icon-theme Adwaita-dark
+    gsettings set org.gnome.desktop.interface font-name Sans 12
 }
 
 #======#

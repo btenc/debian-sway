@@ -64,8 +64,8 @@ apt install -y pipewire wireplumber pavucontrol pamixer &>> "${user_home}/apt-lo
 
 echo "Installing preferred applications..."
 echo "  CLI applications..."
-apt install -y vim zoxide ranger cmus htop neofetch figlet rsync wireguard qalc zathura scrot &>> "${user_home}/apt-log.txt"
-#todo: add scrot macro: scrot ~/pictures/screenshots/%m-%d-%Y_%I:%M:%S.png scrot -s -f ~/pictures/screenshots/%m-%d-%Y_%I:%M:%S.png
+apt install -y vim zoxide ranger cmus htop neofetch figlet rsync wireguard qalc zathura grim slurp &>> "${user_home}/apt-log.txt"
+
 echo "  GUI applications..."
 apt install -y mpv clipman audacity gparted gimp strawberry libreoffice thunderbird qalculate-gtk &>> "${user_home}/apt-log.txt"
 
