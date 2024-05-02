@@ -70,7 +70,7 @@
         "format-linked": "{ifname} (No IP)",
         "format-disconnected": "Disconnected ⚠",
         "format-alt": "{ifname}: {ipaddr}/{cidr}",
-        "on-click-right": "foot nmtui",
+        "on-click-right": "foot nmcli",
     },
 
     "custom/audio": {
