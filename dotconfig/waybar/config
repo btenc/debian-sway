@@ -70,7 +70,7 @@
         "format-linked": "{ifname} (No IP)",
         "format-disconnected": "Disconnected ⚠",
         "format-alt": "{ifname}: {ipaddr}/{cidr}",
-        "on-click-right": "bash ~/.config/rofi/wifi_menu/rofi_wifi_menu",
+        "on-click-right": "foot nmtui",
     },
 
     "custom/audio": {
@@ -85,6 +85,6 @@
         "format": "🖳  {}",
         "exec": "/usr/bin/hostname -f",
         "interval": "once",
-        "on-click": "/usr/bin/rxvt -e /usr/bin/htop",
+        "on-click": "foot htop",
     },
 }
