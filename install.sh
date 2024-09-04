@@ -101,7 +101,10 @@ ln -s /var/lib/flatpak/exports/bin/md.obsidian.Obsidian /usr/bin/Obsidian || ech
 #ln -s /var/lib/flatpak/exports/bin/net.davidotek.pupgui2 /usr/bin/ProtonUp-QT
 
 #flatpak install -y flathub com.github.Matoking.protontricks
-#ln -s /var/lib/flatpak/exports/bin/om.github.Matoking.protontricks /usr/bin/Protontricks
+#ln -s /var/lib/flatpak/exports/bin/com.github.Matoking.protontricks /usr/bin/Protontricks
+
+#flatpak install -y flathub com.valvesoftware.SteamLink
+#ln -s /var/lib/flatpak/exports/bin/com.valvesoftware.SteamLink /usr/bin/SteamLink
 
 echo "Installing fonts..."
 apt install -y fonts-recommended fonts-font-awesome &>> "${user_home}/apt-log.txt"
