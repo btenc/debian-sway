@@ -56,7 +56,7 @@ echo "Installing base system utilities..."
 apt install -y build-essential eject dosfstools zip unzip parted wget whois lshw apt-transport-https dirmngr curl ssh traceroute iw acl ufw tree gpg debian-archive-keyring udns-utils libnotify-bin &>> "${user_home}/apt-log.txt"
 
 echo "Installing additional utilities..."
-apt install -y dialog mtools dosfstools avahi-daemon acpi acpid gvfs-backends network-manager &>> "${user_home}/apt-log.txt"
+apt install -y dialog mtools dosfstools avahi-daemon acpi acpid gvfs-backends network-manager gamescope &>> "${user_home}/apt-log.txt"
 systemctl enable avahi-daemon || echo "Failed to enable avahi daemon"
 systemctl enable acpid || echo "Failed to enable acpid"
 
