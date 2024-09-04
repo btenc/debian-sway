@@ -12,6 +12,7 @@
 # pressing Super + Shift + C.                                                      #
 #==================================================================================#
 
+
 #========================#
 # Appearance and Theming #
 #========================#
@@ -72,7 +73,8 @@ exec swayidle -w \
 
 # Screen locking (manual)
 set $lock_screen exec bash ~/.config/sway/lock_screen.sh
-bindsym $mod+Escape exec $lock_screen 
+bindsym $mod+Escape exec $lock_screen
+
 
 #========================================#
 # Keyboard Shortcuts (Window Management) #
@@ -250,9 +252,8 @@ bindsym $mod+Shift+Print exec grim "$HOME/pictures/screenshots/$(date '+%m-%d-%Y
 bindsym $mod+Print exec grim -g "$(slurp)" "$HOME/pictures/screenshots/$(date '+%m-%d-%Y_%I:%M:%S').png"
 
 #rotate second monitor
-#bindsym ctrl+Shift+h exec swaymsg output DP-3 transform 0
-#bindsym ctrl+Shift+j exec swaymsg output DP-3 transform 270
- 
+bindsym ctrl+Shift+h exec swaymsg output DP-2 transform 0
+bindsym ctrl+Shift+vV exec swaymsg output DP-2 transform 270 
 #======#
 # GTK  #
 #======#
@@ -284,23 +285,8 @@ input 1133:49738:Logitech_Gaming_Mouse_G600 {
 }
 
 #Monitors
-# shitty asus monitor
-#output HDMI-A-1 res 1280x720@60.000Hz
-#output HDMI-A-1 pos 1600 0
-
-#Dell 2007fpb
-#output DP-3 res 1600x1200@60.000Hz	
-#output DP-3 transform 270
-#leftmost monitor
-#output DP-3 pos 0 0 
-
-# Dell crt
-#output DP-2 res 1024x768@75.000Hz
-#output DP-2 pos 3760 0
-
-output DP-1 res 2560x1440@143.999Hz
-output DP-1 pos 1200 0
-
-workspace $ws1 output DP-1
-#workspace $ws2 output DP-3   
-#workspace $ws9 output DP-2
+#output DP-1 pos 1400 0
+#output HDMI-A-1 pos 0 200
+output DP-2 res 1600x1200@60.000Hz	
+output DP-2 transform 270
+output DP-2 pos 0 200

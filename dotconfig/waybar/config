@@ -25,8 +25,8 @@
 
     // Choose the order of the modules
     "modules-center": ["sway/workspaces", "tray"],
-    "modules-left": ["custom/hostname"],
-    "modules-right": [ "custom/audio","network","battery","clock"],
+    "modules-left": ["custom/hostname", "memory", "cpu"],
+    "modules-right": ["gamemode","idle_inhibitor", "custom/audio","network","battery","clock"],
 
     // Configuration for individual modules
      "sway/workspaces": {
@@ -39,6 +39,47 @@
         "icon-size": 18,
         "spacing": 10,
     },
+
+    "idle_inhibitor": {
+      "format": "{icon}",
+      "format-icons": {
+        "activated": "",
+        "deactivated": ""
+      }
+    },
+
+    "memory": {
+        "interval": 30,
+        "format": "{used:0.1f}G/{total:0.1f}G "
+    },
+
+    "cpu": {
+         "interval": 1,
+         "format": "{icon0}{icon1}{icon2}{icon3}{icon4}{icon5}{icon6}{icon7}",
+         "format-icons": [
+              "<span color='#69ff94'>▁</span>", // green
+              "<span color='#2aa9ff'>▂</span>", // blue
+              "<span color='#f8f8f2'>▃</span>", // white
+              "<span color='#f8f8f2'>▄</span>", // white
+              "<span color='#ffffa5'>▅</span>", // yellow
+              "<span color='#ffffa5'>▆</span>", // yellow
+              "<span color='#ff9977'>▇</span>", // orange
+              "<span color='#dd532e'>█</span>"  // red
+              ]
+    },
+
+      "gamemode": {
+  	  "format": "{glyph}",
+  	  "format-alt": "{glyph} {count}",
+  	  "glyph": "",
+  	  "hide-not-running": true,
+  	  "use-icon": true,
+  	  "icon-name": "input-gaming-symbolic",
+  	  "icon-spacing": 4,
+  	  "icon-size": 20,
+  	  "tooltip": true,
+  	  "tooltip-format": "Games running: {count}"
+     },
 
     "clock": {
         "format": "{:%I:%M %p}",
@@ -88,3 +129,5 @@
         "on-click": "foot htop",
     },
 }
+
+

@@ -19,7 +19,7 @@ user_home="/home/$username"
 echo "apt-log will be located at /home/$username"
 
 # Home directories to be created
-directories=(.config ./config/sway .config/waybar .config/Thunar .config/wofi .icons .themes pictures/wallpapers pictures/screenshots documents videos music appimages deb downloads dev/repos dev/scripts disks)
+directories=(.config .icons .themes pictures/wallpapers pictures/screenshots documents videos music appimages deb downloads dev/repos dev/scripts disks)
 
 echo "Creating directories for user $username..."
 for dir in "${directories[@]}"; do
@@ -68,7 +68,7 @@ echo "  CLI applications..."
 apt install -y vim zoxide ranger cmus htop neofetch figlet rsync wireguard qalc zathura grim slurp &>> "${user_home}/apt-log.txt"
 
 echo "  GUI applications..."
-apt install -y mpv clipman audacity gparted gimp strawberry libreoffice thunderbird qalculate-gtk &>> "${user_home}/apt-log.txt"
+apt install -y mpv audacity gparted gimp strawberry libreoffice thunderbird qalculate-gtk &>> "${user_home}/apt-log.txt"
 
 echo "Installing file manager..."
 apt install -y thunar thunar-archive-plugin thunar-media-tags-plugin thunar-volman &>> "${user_home}/apt-log.txt"
@@ -89,11 +89,19 @@ echo "Installing Flatpak and adding Flathub repository..."
 apt install -y flatpak
 flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo || echo "Failed to add Flathub repository"
 echo "Installing Flatpak apps from Flathub..."
+
 flatpak install -y flathub md.obsidian.Obsidian || echo "Failed to install Obsidian from flathub"
 ln -s /var/lib/flatpak/exports/bin/md.obsidian.Obsidian /usr/bin/Obsidian || echo "Failed to create symlink for Obsidian"
-#If you like runescape...
+
+#Runescape...
 #flatpak install -y flathub com.adamcake.Bolt || echo "Failed to install Bolt from flathub"
 #ln -s /var/lib/flatpak/exports/bin/com.adamcake.Bolt /usr/bin/Bolt || echo "Failed to create symlink for Bolt"
+
+#flatpak install -y flathub net.davidotek.pupgui2
+#ln -s /var/lib/flatpak/exports/bin/net.davidotek.pupgui2 /usr/bin/ProtonUp-QT
+
+#flatpak install -y flathub com.github.Matoking.protontricks
+#ln -s /var/lib/flatpak/exports/bin/om.github.Matoking.protontricks /usr/bin/Protontricks
 
 echo "Installing fonts..."
 apt install -y fonts-recommended fonts-font-awesome &>> "${user_home}/apt-log.txt"
